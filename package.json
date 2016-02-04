@@ -1,0 +1,23 @@
+{
+  "name": "reactis-modal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "babel src --optional runtime --out-dir lib"
+  },
+  "author": "Ondrej Novak",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^0.14.6",
+    "react-bootstrap": "^0.28.2",
+    "react-dom": "^0.14.6"
+  },
+  "devDependencies": {
+    "babel": "^5.8.34",
+    "babel-core": "^5.8.34",
+    "babel-loader": "^5.4.0",
+    "babel-plugin-react-transform": "^2.0.0",
+    "webpack": "^1.12.11"
+  }
+}
