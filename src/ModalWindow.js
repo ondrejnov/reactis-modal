@@ -11,27 +11,29 @@ export default class ModalWindow extends Window
 		this.animation = true;
 	}
 
-	hide() {
-		this.dispatch(actions.closeModal(this.modal));
-	}
-
 	dispatch(dispatch, modal) {
 		this.dispatch = dispatch;
 		this.modal = modal;
 		dispatch(actions.openModal(this.modal));
 	}
 
+	hide() {
+		this.dispatch(actions.closeModal(this.modal));
+	}
+
 	show(dispatch) {
-		const modal = <Modal animation={this.animation} show={true} onHide={() => this.hide()} bsStyle={this.style}>
+		const modal = <Modal className={this.className} animation={this.animation} show={true} onHide={() => this.hide()} bsStyle={this.style}>
 			<Modal.Header closeButton>
 				<Modal.Title>{this.title}</Modal.Title>
 			</Modal.Header>
 			<Modal.Body>
 				{this.text}
 			</Modal.Body>
-			<Modal.Footer>
-				{this.buttons}
-			</Modal.Footer>
+			{this.buttons &&
+				<Modal.Footer>
+					{this.buttons}
+				</Modal.Footer>
+			}
 		</Modal>;
 		this.dispatch(dispatch, modal);
 	}
