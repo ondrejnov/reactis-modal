@@ -34,6 +34,6 @@ export default class ConfirmWindow extends ModalWindow
 				<Button onClick={() => this.handleHide(okCallback)} bsStyle="primary">{this.lang.ok}</Button>
 			</Modal.Footer>
 		</Modal>;
-		this.dispatch(dispatch, modal);
+		this.dispatchWindow(dispatch, modal);
 	}
 }

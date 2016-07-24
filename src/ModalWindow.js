@@ -9,9 +9,10 @@ export default class ModalWindow extends Window
 		super(title, text, style);
 		this.buttons = buttons;
 		this.animation = true;
+		this.dispatch = null;
 	}
 
-	dispatch(dispatch, modal) {
+	dispatchWindow(dispatch, modal) {
 		this.dispatch = dispatch;
 		this.modal = modal;
 		dispatch(actions.openModal(this.modal));
@@ -21,7 +22,7 @@ export default class ModalWindow extends Window
 		this.dispatch(actions.closeModal(this.modal));
 	}
 
-	show(dispatch) {
+	show(dispatch = this.dispatch) {
 		const modal = <Modal className={this.className} animation={this.animation} show={true} onHide={() => this.hide()} bsStyle={this.style}>
 			<Modal.Header closeButton>
 				<Modal.Title>{this.title}</Modal.Title>
@@ -35,6 +36,6 @@ export default class ModalWindow extends Window
 				</Modal.Footer>
 			}
 		</Modal>;
-		this.dispatch(dispatch, modal);
+		this.dispatchWindow(dispatch, modal);
 	}
 }

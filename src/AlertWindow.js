@@ -22,6 +22,6 @@ export default class AlertWindow extends ModalWindow
 							<Button onClick={() => this.hide()} bsStyle="primary">OK</Button>
 						</Modal.Footer>
 					</Modal>;
-		this.dispatch(dispatch, modal);
+		this.dispatchWindow(dispatch, modal);
 	}
 }
