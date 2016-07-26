@@ -28,7 +28,7 @@ export default class ModalWindow extends Window
 				<Modal.Title>{this.title}</Modal.Title>
 			</Modal.Header>
 			<Modal.Body>
-				{this.text}
+				{React.cloneElement(this.text, {close:() => this.hide()})}
 			</Modal.Body>
 			{this.buttons &&
 				<Modal.Footer>
